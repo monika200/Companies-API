@@ -67,7 +67,7 @@ router.get('/companies_details/:name', async (req, res) => {
 	try {
 		const client = await mongoClient.connect(DB_URL);
 		const db = client.db('companies');
-		const result = await db.collection('company').findOne({"name": {$regex:(req.params.name)}});
+		const result = await db.collection('company').findOne({"name": {$regex:(req.params.name)}},{"_id":0,"description":0,"url_image":0,"rating":0});
 		if (!result) {
 			res.json({ message: 'No Matching Company Found' });
 		} else {
