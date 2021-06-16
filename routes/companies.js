@@ -8,8 +8,7 @@ const exp = express();
 exp.use(express.json());
 
 const mongoClient = mongodb.MongoClient;
-const DB_URL = "mongodb+srv://MONIKA20:haachihaachi@cluster0.0saeo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
-
+const DB_URL = process.env.DB_URL
 
 router.get('/', async(req,res,next)=>{
         res.status(200).json({
